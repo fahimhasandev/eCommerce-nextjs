@@ -1,9 +1,10 @@
-export const metadata = {
-  title: "Home",
-};
+import ProductList from "@/components/product/product";
+import sampleData from "@/db/sample-data";
 
 const Homepage = () => {
-  return <h1>Prostore</h1>;
+  return (
+    <ProductList title="Newest Arrivals" data={sampleData.products} limit={4} />
+  );
 };
 
 export default Homepage;
