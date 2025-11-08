@@ -1,5 +1,3 @@
-
-
 import { PrismaClient } from "@/lib/generated/prisma/client";
 import sampleData from "./sample-data";
 
