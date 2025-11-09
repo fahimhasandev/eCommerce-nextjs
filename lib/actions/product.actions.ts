@@ -10,7 +10,12 @@ export const getLatestProducts = async () => {
         take: LATEST_PRODUCTS_LIMIT,
         orderBy: { createdAt: 'desc' }
     });
-
-
     return convertTOPlainObject(data);
 };
+
+// Get single product by its slug
+export async function getProductBySlug(slug: string) {
+    return await prisma.product.findFirst({
+        where: { slug: slug }
+    });
+}
