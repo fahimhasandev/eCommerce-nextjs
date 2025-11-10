@@ -1,7 +1,6 @@
 
 import prisma from "@/db/prisma";
 import { LATEST_PRODUCTS_LIMIT } from "../constant";
-
 import { convertTOPlainObject } from "../utils";
 
 export const getLatestProducts = async () => {
@@ -15,7 +14,9 @@ export const getLatestProducts = async () => {
 
 // Get single product by its slug
 export async function getProductBySlug(slug: string) {
-    return await prisma.product.findFirst({
+    const data = await prisma.product.findFirst({
         where: { slug: slug }
     });
+
+    return convertTOPlainObject(data);
 }
