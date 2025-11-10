@@ -42,3 +42,4 @@ const ProductImages = ({ images }: { images: string[] }) => {
 };
 
 export default ProductImages;
+
