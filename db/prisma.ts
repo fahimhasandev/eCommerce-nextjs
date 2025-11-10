@@ -11,31 +11,29 @@ neonConfig.webSocketConstructor = ws;
 
 // Type definitions
 declare global {
-  var prisma: PrismaClient | undefined;
+  var prisma: ReturnType<typeof PrismaClient.prototype.$extends> | undefined;
 }
 
 const connectionString = `${process.env.DATABASE_URL}`;
 const adapter = new PrismaNeon({ connectionString });
-const prisma =
+const prismaClient =
   global.prisma ||
   new PrismaClient({ adapter }).$extends({
     result: {
       product: {
         price: {
-          needs: { price: true },
-          compute(p) { return p.price.toString(); },
+          compute(product) {
+            return product.price.toString();
+          },
         },
         rating: {
-          needs: { rating: true },
-          compute(p) { return p.rating?.toNumber?.() ?? 0; },
-        },
-        createdAt: {
-          needs: { createdAt: true },
-          compute(p) { return p.createdAt.toISOString(); },
+          compute(product) {
+            return product.rating.toString();
+          },
         },
       },
     },
   });
-if (process.env.NODE_ENV === "development") global.prisma = prisma;
+if (process.env.NODE_ENV === "development") global.prisma = prismaClient;
 
-export default prisma;
+export default prismaClient;
