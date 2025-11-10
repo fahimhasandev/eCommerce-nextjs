@@ -1,4 +1,20 @@
+import { hashSync } from 'bcrypt-ts-edge';
+
 const sampleData = {
+  users: [
+    {
+      name: 'John',
+      email: 'admin@example.com',
+      password: hashSync('123456', 10), //salt -- random value added to password before hashing it and making it more sure. 10 is recommended.
+      role: 'admin'
+    },
+    {
+      name: 'Jane',
+      email: 'user@example.com',
+      password: hashSync('123456', 10),
+      role: 'user'
+    },
+  ],
   products: [
     {
       name: 'Polo Sporting Stretch Shirt',

@@ -32,6 +32,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.2.4
         version: 1.2.4(@types/react@19.2.2)(react@19.2.0)
+      bcrypt-ts-edge:
+        specifier: ^3.0.1
+        version: 3.0.1
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -1019,6 +1022,9 @@ packages:
   aria-hidden@1.2.6:
     resolution: {integrity: sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==}
     engines: {node: '>=10'}
+
+  bcrypt-ts-edge@3.0.1:
+    resolution: {integrity: sha512-Gq0tyh6qfnFF1ojObSJo0RpZ8Pkm1HTqiLRsaMjeQOWDpIhfa2OURLx2UDcvT9EiUo9apfVk6zZDD+WpwF72fg==}
 
   bufferutil@4.0.9:
     resolution: {integrity: sha512-WDtdLmJvAuNNPzByAYpRo2rF1Mmradw6gvWsQKf63476DDXmomT9zUiGypLcG4ibIM67vhAj8jJRdbmEws2Aqw==}
@@ -2248,6 +2254,8 @@ snapshots:
   aria-hidden@1.2.6:
     dependencies:
       tslib: 2.8.1
+
+  bcrypt-ts-edge@3.0.1: {}
 
   bufferutil@4.0.9:
     dependencies:
