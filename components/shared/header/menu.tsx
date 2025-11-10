@@ -1,15 +1,15 @@
 // ✅ Use Next.js Link (not the lucide icon)
 
-import { EllipsisVertical, ShoppingCartIcon, UserIcon } from "lucide-react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "components/ui/sheet";
+import { EllipsisVertical, ShoppingCartIcon, UserIcon } from "lucide-react";
+import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
 
 const Menu = () => {

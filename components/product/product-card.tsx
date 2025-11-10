@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Product } from "@/types";
+import type { Product } from "types";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import ProductPrice from "./product-price";
 

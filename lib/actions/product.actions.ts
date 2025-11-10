@@ -1,7 +1,8 @@
-
-import prisma from "@/db/prisma";
 import { LATEST_PRODUCTS_LIMIT } from "../constant";
+import { PrismaClient } from "../generated/prisma/client";
 import { convertTOPlainObject } from "../utils";
+
+const prisma = new PrismaClient();
 
 export const getLatestProducts = async () => {
     // get the data

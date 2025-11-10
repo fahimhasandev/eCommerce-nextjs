@@ -17,16 +17,24 @@ const ProductImages = ({ images }: { images: string[] }) => {
       />
       <div className="flex">
         {images.map((image, index) => (
-          <div
+          <button
+            type="button"
             key={image}
             className={cn(
               "border mr-2 cursor-pointer hover:border-orange-600",
               current === index && "border-orange-500"
             )}
             onClick={() => setCurrent(index)}
+            onKeyDown={(e) => e.key === "Enter" && setCurrent(index)}
+            aria-label={`View image ${index + 1}`}
           >
-            <Image src={image} alt="images" height={100} width={100} />
-          </div>
+            <Image
+              src={image}
+              alt={`Product image ${index + 1}`}
+              height={100}
+              width={100}
+            />
+          </button>
         ))}
       </div>
     </div>
