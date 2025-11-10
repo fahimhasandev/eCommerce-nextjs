@@ -17,7 +17,6 @@ export const insertProductSchema = z.object({
     isFeatured: z.boolean(),
     banner: z.string().nullable(),
     price: currency
-
 });
 
 // ^ --start with

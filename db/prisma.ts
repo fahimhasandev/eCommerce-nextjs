@@ -15,7 +15,6 @@ declare global {
 }
 
 const connectionString = `${process.env.DATABASE_URL}`;
-
 const adapter = new PrismaNeon({ connectionString });
 const prisma =
   global.prisma ||
@@ -23,19 +22,20 @@ const prisma =
     result: {
       product: {
         price: {
-          compute(product) {
-            return product.price.toString();
-          },
+          needs: { price: true },
+          compute(p) { return p.price.toString(); },
         },
         rating: {
-          compute(product) {
-            return product.rating.toString();
-          },
+          needs: { rating: true },
+          compute(p) { return p.rating?.toNumber?.() ?? 0; },
+        },
+        createdAt: {
+          needs: { createdAt: true },
+          compute(p) { return p.createdAt.toISOString(); },
         },
       },
     },
   });
-
 if (process.env.NODE_ENV === "development") global.prisma = prisma;
 
 export default prisma;
