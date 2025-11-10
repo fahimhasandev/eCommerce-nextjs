@@ -84,6 +84,9 @@ importers:
       bufferutil:
         specifier: ^4.0.9
         version: 4.0.9
+      dotenv:
+        specifier: ^17.2.3
+        version: 17.2.3
       prisma:
         specifier: ^6.19.0
         version: 6.19.0(typescript@5.9.3)
@@ -1044,6 +1047,10 @@ packages:
 
   dotenv@16.6.1:
     resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
+    engines: {node: '>=12'}
+
+  dotenv@17.2.3:
+    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
     engines: {node: '>=12'}
 
   effect@3.18.4:
@@ -2225,6 +2232,8 @@ snapshots:
   detect-node-es@1.1.0: {}
 
   dotenv@16.6.1: {}
+
+  dotenv@17.2.3: {}
 
   effect@3.18.4:
     dependencies:
