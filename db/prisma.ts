@@ -1,7 +1,7 @@
 import { neonConfig } from "@neondatabase/serverless";
 import { PrismaNeon } from "@prisma/adapter-neon";
+import { PrismaClient } from "@prisma/client";
 import ws from "ws";
-import { PrismaClient } from "@/lib/generated/prisma";
 
 neonConfig.webSocketConstructor = ws;
 // To work in edge environments (Cloudflare Workers,  Vercel Edge, etc.), enable querying over fetch
