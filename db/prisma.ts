@@ -8,31 +8,29 @@ neonConfig.webSocketConstructor = ws;
 // neonConfig.poolQueryViaFetch = true
 
 // Type definitions
-declare global {
-  var prisma: ReturnType<typeof PrismaClient.prototype.$extends> | undefined;
-}
+// declare global {
+//   var prisma: ReturnType<typeof PrismaClient.prototype.$extends> | undefined;
+// }
 
 const connectionString = `${process.env.DATABASE_URL}`;
 const adapter = new PrismaNeon({ connectionString });
 
-const prismaClient =
-  global.prisma ||
-  new PrismaClient({ adapter }).$extends({
-    result: {
-      product: {
-        price: {
-          compute(product) {
-            return product.price.toString();
-          },
+export const prisma = new PrismaClient({ adapter }).$extends({
+  result: {
+    product: {
+      price: {
+        compute(product) {
+          return product.price.toString();
         },
-        rating: {
-          compute(product) {
-            return product.rating.toString();
-          },
+      },
+      rating: {
+        compute(product) {
+          return product.rating.toString();
         },
       },
     },
-  });
-if (process.env.NODE_ENV === "development") global.prisma = prismaClient;
+  },
+});
+// if (process.env.NODE_ENV === "development") global.prisma = prismaClient;
 
-export default prismaClient;
+// export default prismaClient;
