@@ -17,7 +17,7 @@ export async function singInWithCredentials(
 
         return { success: true, message: "Signed in sucessfully" };
     } catch (error) {
-        if (isRedirectError) {
+        if (isRedirectError(error)) {
             throw error;
         }
 
