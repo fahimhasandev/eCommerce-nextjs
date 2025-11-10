@@ -14,6 +14,7 @@ declare global {
 
 const connectionString = `${process.env.DATABASE_URL}`;
 const adapter = new PrismaNeon({ connectionString });
+
 const prismaClient =
   global.prisma ||
   new PrismaClient({ adapter }).$extends({
