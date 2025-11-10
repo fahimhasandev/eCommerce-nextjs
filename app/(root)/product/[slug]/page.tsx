@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import ProductImages from "@/components/product/product-images";
 import ProductPrice from "@/components/product/product-price";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -18,7 +19,10 @@ const ProductDetailsPage = async (props: {
     <section>
       <div className="grid grid-cols-1 md:grid-cols-5">
         {/* Images Column*/}
-        <div className="col-span-2">{/* Images Component */}</div>
+        <div className="col-span-2">
+          {/* Images Component */}
+          <ProductImages images={product.images} />
+        </div>
         {/* Details Column */}
         <div className="col-span-2 p-5">
           <div className="flex flex-col gap-6">
@@ -27,7 +31,7 @@ const ProductDetailsPage = async (props: {
             </p>
             <h1 className="h3-bold">{product.name}</h1>
             <p>
-              {product.rating} of {product.numReviews} Reviews
+              {String(product.rating)} of {product.numReviews} Reviews
             </p>
             <div className="flex flex-col sm:flex-row sm:items-center">
               <ProductPrice
